@@ -1,4 +1,3 @@
-
 def approx(f, a, b): # to approximate area of func f from a --> b by Simpson
   ar = ((b - a) / 6) * (f(a) + 4 * f((a - b) / 2) + f(b))
   return ar
