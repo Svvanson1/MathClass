@@ -22,7 +22,6 @@ def upper_triangular(mat):
       # print(str(mat[row][0]) + " - (" + str(mat[row][i]) + " / " + str(mat[i][i]) + ") *" + str(mat[i][0]) + " =  " + str(float(5 - (5/3)*3)) )
       for col in range(cl):
         mat[row][col] = mat[row][col] - k*mat[i][col]
-      print_mat(mat)
     i += 1
 
 
