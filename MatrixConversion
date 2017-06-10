@@ -1,0 +1,14 @@
+''' this file is to convert any given matrix from integer format to float and vice versa '''
+
+#  takes a matrix of any numerical value and converts it to one in floating point form
+#  assuming the matrix doesn't contain strings
+def to_float(mat):
+  for row in range(len(mat)):
+    for col in range(len(mat[row])):
+      mat[row][col] = float(mat[row][col])
+
+#  self-explanatory
+def to_int(mat):
+  for row in range(len(mat)):
+    for col in range(len(mat[row])):
+      mat[row][col] = int(mat[row][col])
