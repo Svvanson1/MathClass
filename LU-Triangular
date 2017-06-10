@@ -1,0 +1,44 @@
+def to_float(mat):
+  for row in range(len(mat)):
+    for col in range(len(mat[row])):
+      mat[row][col] = float(mat[row][col])
+
+def to_int(mat):
+  for row in range(len(mat)):
+    for col in range(len(mat[row])):
+      mat[row][col] = int(mat[row][col])
+
+
+#  takes any given m x n matrix and converts it to upper triangular form via iteration down the diagonal
+def upper_triangular(mat):
+  to_float(mat)
+  rl, cl = len(mat), len(mat[0])
+  i = 0
+  while(i < cl and i < rl):
+    for row in range(i+1, rl):
+      # row_x --> row_x - k*row_i 
+      # where k is a multiple such that when the product of k and element (a)_i,i are subtracted from element (a)_i+1,i ,  the element (a)_i+1,i = 0 
+      k = mat[row][i] / mat[i][i]
+      # print(str(mat[row][0]) + " - (" + str(mat[row][i]) + " / " + str(mat[i][i]) + ") *" + str(mat[i][0]) + " =  " + str(float(5 - (5/3)*3)) )
+      for col in range(cl):
+        mat[row][col] = mat[row][col] - k*mat[i][col]
+      print_mat(mat)
+    i += 1
+
+
+
+#  takes any given m x n matrix and coverts it to lower triangular form via iterating up the diagonal
+def lower_triangular(mat):
+  to_float(mat)
+  rl, cl = len(mat), len(mat[0])
+  i = 0
+  if(rl > cl):
+    i = cl - 1
+  else:
+    i = rl - 1
+  while(i >= 0):
+    for row in range(i-1, -1, -1):
+      k = mat[row][i] / mat[i][i]
+      for col in range(cl):
+        mat[row][col] -= k*mat[i][col]
+    i -= 1
